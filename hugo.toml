@@ -1,0 +1,90 @@
+baseURL = 'https://abstractart.github.io'
+languageCode = 'en-us'
+title = 'Eugene Kozlov'
+theme = 'typo'
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+# Home meta description
+description = "A tech-oriented personal blog curated by Eugene Kozlov."
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = false
+
+# Intro on main page, content in markdown
+homeIntroTitle = 'Hi!'
+homeIntroContent = """
+I am an Russian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
+I am interested in a various topics, including algorithms, distributed systems, databases, and information retrieval. \\
+Feel free to read [about myself](/about) or to look at my [posts](/posts).
+"""
+
+
+singleDateFormat = '2 Jan 2006'
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = true
+listDateFormat = '02 Jan 2006'
+
+# Breadcrumbs
+breadcrumbs = true
+
+showFooter = true
+# footerContent = """Custom"""
+
+# Social icons
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/kozlovea8/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/abstractart"
+
+# Main menu pages
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.menu]]
+name = "about"
+url = "/about"
+
+[[params.menu]]
+name = "library"
+url = "/library"
+
+# [[params.menu]]
+# name = "tags"
+# url = "/tags"
+
+
+# Syntax highlight on code blocks
+[markup]
+[markup.highlight]
+style = 'bw'
+
+# Deploy settings
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf|woff2)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|gif|webp)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
