@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // Репозиторий называется `abstractart.github.io`, поэтому сайт живёт
-  // в корне домена и `base` не нужен.
-  site: 'https://abstractart.github.io',
+  // Свой домен, подключённый к GitHub Pages (A-записи на 185.199.108-111.153).
+  site: 'https://eugenekozlov.ru',
 });
