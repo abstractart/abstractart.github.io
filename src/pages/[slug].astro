@@ -26,6 +26,7 @@ const dateFormat = new Intl.DateTimeFormat('ru-RU', {
 <Layout
   title={`${post.data.title} — ${profile.name}`}
   description={post.data.description}
+  image={`og/${post.id}.png`}
   type="article"
   publishedTime={post.data.pubDate}
 >
