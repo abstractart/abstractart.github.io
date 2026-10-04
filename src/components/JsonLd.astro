@@ -1,0 +1,11 @@
+---
+// Рендерит schema.org-разметку. Использование:
+// <JsonLd schema={{ ... }} />
+interface Props {
+  schema: Record<string, unknown>;
+}
+
+const { schema } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -27,4 +27,11 @@ export const profile = {
     { label: 'Telegram', value: '@ea_kozlov', href: 'https://t.me/ea_kozlov' },
     { label: 'GitHub', value: 'abstractart', href: 'https://github.com/abstractart' },
   ] satisfies ContactLink[],
+
+  // Внешние профили для SEO-разметки Person (sameAs)
+  sameAs: [
+    'https://github.com/abstractart',
+    'https://www.linkedin.com/in/kozlovea8/',
+    'https://career.habr.com/abstractart',
+  ],
 };

@@ -3,7 +3,29 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { profile } from '../data/profile';
+
+const site = Astro.site ?? new URL('https://eugenekozlov.ru');
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: site.href,
+  jobTitle: profile.role,
+  email: `mailto:${profile.email}`,
+  sameAs: profile.sameAs,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: `${profile.name} — блог`,
+  description: profile.tagline,
+  url: site.href,
+  inLanguage: 'ru-RU',
+};
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -17,6 +39,8 @@ const dateFormat = new Intl.DateTimeFormat('ru-RU', {
 ---
 
 <Layout title={`Статьи и заметки — ${profile.name}`} description="Статьи и заметки">
+  <JsonLd schema={personSchema} />
+  <JsonLd schema={websiteSchema} />
   <Header />
 
   <main>
