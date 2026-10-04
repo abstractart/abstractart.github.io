@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      © {year} {profile.name} · Сделано на
+      <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> ·
+      <a href={`${import.meta.env.BASE_URL}rss.xml`}>RSS</a>
+    </p>
+  </div>
+</footer>

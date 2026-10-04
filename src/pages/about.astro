@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { profile } from '../data/profile';
+
+const github = profile.contacts.find((contact) => contact.label === 'GitHub');
+---
+
+<Layout>
+  <Header />
+
+  <main id="top">
+    <section class="hero hero-compact">
+      <div class="container">
+        <p class="eyebrow">{profile.role}</p>
+        <h1>{profile.name}</h1>
+        <p class="tagline">{profile.tagline}</p>
+        <p class="location">{profile.location}</p>
+        <div class="actions">
+          <a class="button button-primary" href="#contacts">Связаться со мной</a>
+          {github && (
+            <a class="button button-secondary" href={github.href} target="_blank" rel="noopener">
+              GitHub
+            </a>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Обо мне</h2>
+        {profile.about.map((paragraph) => (
+          <p class="about-text">{paragraph}</p>
+        ))}
+      </div>
+    </section>
+
+    <section id="contacts" class="section">
+      <div class="container">
+        <h2>Контакты</h2>
+        <div class="contacts">
+          {profile.contacts.map((contact) => (
+            <a
+              class="contact-card"
+              href={contact.href}
+              target={contact.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel="noopener"
+            >
+              <span class="contact-label">{contact.label}</span>
+              <span class="contact-value">{contact.value}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <a class="back-link" href={`${import.meta.env.BASE_URL}`}>← Блог</a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

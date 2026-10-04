@@ -1,0 +1,18 @@
+---
+import { profile } from '../data/profile';
+
+const links = [
+  { href: `${import.meta.env.BASE_URL}about`, label: 'Обо мне' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={`${import.meta.env.BASE_URL}`} class="brand">{profile.name}</a>
+    <nav>
+      {links.map((link) => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
