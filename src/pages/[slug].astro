@@ -23,7 +23,12 @@ const dateFormat = new Intl.DateTimeFormat('ru-RU', {
 });
 ---
 
-<Layout title={`${post.data.title} — ${profile.name}`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} — ${profile.name}`}
+  description={post.data.description}
+  type="article"
+  publishedTime={post.data.pubDate}
+>
   <Header />
 
   <main>
